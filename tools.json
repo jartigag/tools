@@ -1,0 +1,46 @@
+{
+	"osint":
+	{
+		"email":
+		[[
+			"https://github.com/Quantika14/email-osint-ripper",
+			"https://github.com/m4ll0k/Infoga"
+		]],
+		"twitter":
+		[[
+			"https://github.com/digitalmethodsinitiative/dmi-tcat",
+			"https://github.com/vaguileradiaz/tinfoleak",
+			"https://github.com/x0rz/tweets_analyzer",
+			"https://github.com/michenriksen/birdwatcher",
+			"https://github.com/mgmacias95/Tweet-Stat",
+			"https://github.com/jartigag/cubiertos-para-twitter"
+		],[
+			"https://tweetbeaver.com",
+			"https://audiense.com",
+			"https://www.twitteraudit.com",
+			"https://moz.com/followerwonk",
+			"https://socialbearing.com"
+		]],
+		"domain":
+		[[
+			"https://github.com/michenriksen/aquatone",
+			"https://github.com/UnaPibaGeek/ctfr"
+		]],
+		"phone number":[[]]
+	},
+	"domain-squatting":
+	{
+		"dns":
+		[[
+			"https://github.com/elceef/dnstwist",
+			"https://github.com/urbanadventurer/urlcrazy",
+			"https://github.com/ring0lab/catphish",
+			"https://github.com/phishai/idn_generator",
+			"https://github.com/UndeadSec/EvilURL",
+			"https://github.com/UndeadSec/checkURL"
+		],[
+			"https://mxtoolbox.com/",
+			"http://cyber.squatting.es"
+		]]
+	}
+}
