@@ -5,7 +5,7 @@
 		[[
 			"https://github.com/Quantika14/email-osint-ripper",
 			"https://github.com/m4ll0k/Infoga"
-		]],
+		],[]],
 		"twitter":
 		[[
 			"https://github.com/digitalmethodsinitiative/dmi-tcat",
@@ -25,8 +25,8 @@
 		[[
 			"https://github.com/michenriksen/aquatone",
 			"https://github.com/UnaPibaGeek/ctfr"
-		]],
-		"phone number":[[]]
+		],[]],
+		"phone number":[[],[]]
 	},
 	"domain-squatting":
 	{

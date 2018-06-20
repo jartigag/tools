@@ -13,8 +13,25 @@ __version__ = '0.1'
 __email__ = 'jartigag@pm.me'
 
 def print_index(): #TODO: columns?
-    i = json.load(open("tools.json"))
-    print(json.dumps(i, indent=2)) #TODO: print numbered list
+    index = json.load(open("tools.json"))
+    i=0
+    for category in index:
+        i+=1
+        print("%i.- %s" % (i,category))
+        j=0
+        for subcat in index[category]:
+            j+=1
+            print("%i.%i- %s" % (i,j,subcat))
+            k=0
+            print("    [tools]:")
+            for tool in index[category][subcat][0]:
+                k+=1
+                print("%i%i%i: %s" % (i,j,k,tool))
+            k=0
+            print("    [links]:")
+            for link in index[category][subcat][1]:
+                k+=1
+                print("%i%i%i: %s" % (i,j,k,link))
 
 def choose(o):
     if o=='x':
@@ -26,7 +43,6 @@ def choose(o):
 if __name__ == "__main__":
 
     print('''
-
                                 888888888888                       88             
                                      88                            88             
                                      88                            88             
