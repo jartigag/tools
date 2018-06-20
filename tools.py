@@ -3,6 +3,7 @@
 
 import pip._internal
 import json
+from collections import OrderedDict
 import sys
 import os
 import subprocess
@@ -13,25 +14,26 @@ __version__ = '0.1'
 __email__ = 'jartigag@pm.me'
 
 def print_index(): #TODO: columns?
-    index = json.load(open("tools.json"))
+    index = json.load(open("tools.json"),object_pairs_hook=OrderedDict)
     i=0
     for category in index:
         i+=1
-        print("%i.- %s" % (i,category))
+        print("%i. - \033[4m%s\033[0m" % (i,category.upper()))
         j=0
         for subcat in index[category]:
             j+=1
-            print("%i.%i- %s" % (i,j,subcat))
+            print(" \033[1m%i.%i-%s\033[0m" % (i,j,subcat))
             k=0
-            print("    [tools]:")
+            print("     [tools]:")
             for tool in index[category][subcat][0]:
+                t = tool.rsplit('/',1)
                 k+=1
-                print("%i%i%i: %s" % (i,j,k,tool))
+                print("     %i%i%i: %s/\033[1m%s\033[0m" % (i,j,k,t[0],t[1]))
             k=0
-            print("    [links]:")
+            print("     [links]:")
             for link in index[category][subcat][1]:
                 k+=1
-                print("%i%i%i: %s" % (i,j,k,link))
+                print("     %i%i%i: %s" % (i,j,k,link))
 
 def choose(o):
     if o=='x':
