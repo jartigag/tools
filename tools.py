@@ -13,8 +13,9 @@ __author__ = 'jartigag'
 __version__ = '0.1'
 __email__ = 'jartigag@pm.me'
 
+index = json.load(open("tools.json"),object_pairs_hook=OrderedDict)
+
 def print_index(): #TODO: columns?
-    index = json.load(open("tools.json"),object_pairs_hook=OrderedDict)
     i=0
     for category in index:
         i+=1
@@ -35,12 +36,26 @@ def print_index(): #TODO: columns?
                 k+=1
                 print("     %i%i%i: %s" % (i,j,k,link))
 
-def choose(o):
-    if o=='x':
-        print("bye!")
-        sys.exit(0)
-    else:
-        pass
+def choosed_tool():
+    o = str(input("(type x to exit)\nchoose a tool by its number: "))
+    try:
+        #list indexing start at 0:
+        c = int(o[0])-1
+        s = int(o[1])-1
+        t = int(o[2])-1
+
+        cat = list(index.items())[c][1] # class collections.OrderedDict
+        subcat = list(cat.items())[s][1] # class collections.OrderedDict
+        tool = subcat[0][t].split('/')[-1] # tool-name from gh.com/u/tool-name
+
+        return tool
+    except ValueError:
+        if o=='x':
+            print("bye!")
+            sys.exit(0)
+        else:
+            print("invalid value")
+            choosed_tool()
 
 if __name__ == "__main__":
 
@@ -58,8 +73,8 @@ if __name__ == "__main__":
     ''' % (__version__,__author__,__email__))
 
     print_index()
-    o = str(input("(type x to exit)\nchoose a tool by its number: "))
-    choose(o)
+    
+    print(choosed_tool())
 
     '''
     parser = argparse.ArgumentParser(
