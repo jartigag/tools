@@ -7,6 +7,7 @@ from collections import OrderedDict
 import sys
 import os
 import subprocess
+import webbrowser
 #import argparse
 
 __author__ = 'jartigag'
@@ -48,7 +49,11 @@ def choosed_tool():
         subcat = list(cat.items())[s][1] # class collections.OrderedDict
         tool = subcat[0][t].split('/')[-1] # tool-name from gh.com/u/tool-name
 
-        return tool
+        if 'github.com' in subcat[0][t]:
+            return tool
+        else:
+            #webbrowser.open_new_tab(tool)
+            return tool
     except ValueError:
         if o=='x':
             print("bye!")
