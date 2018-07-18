@@ -38,22 +38,32 @@ def print_index(): #TODO: columns?
                 print("     %i%i%i: %s" % (i,j,k,link))
 
 def choosed_tool():
-    o = str(input("(type x to exit)\nchoose a tool by its number: "))
+    o = str(input("(type x to exit)\nchoose a tool by its number (start with 0 to choose a link): "))
     try:
         #list indexing start at 0:
         c = int(o[0])-1
-        s = int(o[1])-1
-        t = int(o[2])-1
-
+        if c==-1:
+            if len(o)==4:
+                c = int(o[1])-1
+                s = int(o[2])-1
+                t = int(o[3])-1
+            else:
+                raise IndexError("incomplete numb")
+        else:
+            s = int(o[1])-1
+            t = int(o[2])-1
         cat = list(index.items())[c][1] # class collections.OrderedDict
         subcat = list(cat.items())[s][1] # class collections.OrderedDict
-        tool = subcat[0][t].split('/')[-1] # tool-name from gh.com/u/tool-name
-
-        if 'github.com' in subcat[0][t]:
-            return tool
+        if int(o[0])==0:
+            if len(o)==4:
+                link = subcat[1][t]
+                webbrowser.open_new_tab(link)
+                return link
+            else:
+                tool = subcat[0][t].split('/')[-1] # tool-name from gh.com/u/tool-name
+                return tool
         else:
-            #webbrowser.open_new_tab(tool)
-            return tool
+            raise IndexError("incomplete numb")
     except ValueError:
         if o=='x':
             print("bye!")
@@ -61,6 +71,9 @@ def choosed_tool():
         else:
             print("invalid value")
             choosed_tool()
+    except IndexError:
+        print("invalid value")
+        choosed_tool()
 
 if __name__ == "__main__":
 
@@ -78,7 +91,6 @@ if __name__ == "__main__":
     ''' % (__version__,__author__,__email__))
 
     print_index()
-    
     print(choosed_tool())
 
     '''
