@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+#FIXME: if first choosen_tool value is invalid, next time print(choosed_tool()) prints None 
+
 import pip._internal
 import json
 from collections import OrderedDict
@@ -8,7 +10,6 @@ import sys
 import os
 import subprocess
 import webbrowser
-#import argparse
 
 __author__ = 'jartigag'
 __version__ = '0.1'
@@ -35,7 +36,7 @@ def print_index(): #TODO: columns?
             print("     [links]:")
             for link in index[category][subcat][1]:
                 k+=1
-                print("     %i%i%i: %s" % (i,j,k,link))
+                print("     0%i%i%i: %s" % (i,j,k,link))
 
 def choosed_tool():
     o = str(input("(type x to exit)\nchoose a tool by its number (start with 0 to choose a link): "))
@@ -48,22 +49,24 @@ def choosed_tool():
                 s = int(o[2])-1
                 t = int(o[3])-1
             else:
-                raise IndexError("incomplete numb")
+                raise IndexError()
         else:
             s = int(o[1])-1
             t = int(o[2])-1
         cat = list(index.items())[c][1] # class collections.OrderedDict
         subcat = list(cat.items())[s][1] # class collections.OrderedDict
         if int(o[0])==0:
-            if len(o)==4:
-                link = subcat[1][t]
-                webbrowser.open_new_tab(link)
-                return link
-            else:
-                tool = subcat[0][t].split('/')[-1] # tool-name from gh.com/u/tool-name
-                return tool
+            link = subcat[1][t]
+            # can't set incognito mode in all browsers, because
+            # webbrowser.get().__dict__: {'args': ['%s'], 'basename': 'xdg-open', 'name': 'xdg-open'}
+            # so this lines only work for chromium:
+            ichrom = webbrowser.get('chromium')
+            ichrom.remote_args.append('--incognito')
+            ichrom.open_new_tab(link)
+            return link
         else:
-            raise IndexError("incomplete numb")
+            tool = subcat[0][t].split('/')[-1] # tool-name from gh.com/u/tool-name
+            return tool
     except ValueError:
         if o=='x':
             print("bye!")
@@ -92,15 +95,3 @@ if __name__ == "__main__":
 
     print_index()
     print(choosed_tool())
-
-    '''
-    parser = argparse.ArgumentParser(
-        description="my tools",
-        usage="%(prog)s")
-
-    args = parser.parse_args()
-    if not any(vars(args).values()):
-        parser.print_help()
-    else:
-        main()
-    '''
