@@ -5,7 +5,12 @@
 		[[
 			"https://github.com/Quantika14/email-osint-ripper",
 			"https://github.com/m4ll0k/Infoga"
-		],[]],
+		],[
+			"https://haveibeenpwned.com/",
+			"https://en.gravatar.com/site/check",
+			"https://inteltechniques.com/osint/menu.email.html",
+			"https://verify-email.org/"
+		]],
 		"twitter":
 		[[
 			"https://github.com/digitalmethodsinitiative/dmi-tcat",
@@ -26,10 +31,15 @@
 			"https://github.com/michenriksen/aquatone",
 			"https://github.com/UnaPibaGeek/ctfr",
 			"https://github.com/Nekmo/dirhunt"
-		],[]],
+		],[
+			"https://findsubdomains.com/",
+			"http://web.archive.org/"
+		]],
 		"phone number":[[
 			"https://github.com/DataSploit/datasploit"
-		],[]]
+		],[
+			"https://numeracionyoperadores.cnmc.es/portabilidad-movil/operador"
+		]]
 	},
 	"domain-squatting":
 	{
