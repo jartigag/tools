@@ -39,7 +39,7 @@ def print_index(): #TODO: columns?
                 print("     0%i%i%i: %s" % (i,j,k,link))
 
 def choosed_tool():
-    o = str(input("(type x to exit)\nchoose a tool by its number (start with 0 to choose a link): "))
+    o = str(input("(type x to exit)\nchoose a tool by its number (start with 0 to choose a link): ")).lower()
     try:
         #list indexing start at 0:
         c = int(o[0])-1
@@ -51,8 +51,11 @@ def choosed_tool():
             else:
                 raise IndexError()
         else:
-            s = int(o[1])-1
-            t = int(o[2])-1
+            if len(o)==3:
+                s = int(o[1])-1
+                t = int(o[2])-1
+            else:
+                raise IndexError()
         cat = list(index.items())[c][1] # class collections.OrderedDict
         subcat = list(cat.items())[s][1] # class collections.OrderedDict
         if int(o[0])==0:
@@ -73,10 +76,8 @@ def choosed_tool():
             sys.exit(0)
         else:
             print("invalid value")
-            choosed_tool()
     except IndexError:
         print("invalid value")
-        choosed_tool()
 
 if __name__ == "__main__":
 
@@ -94,4 +95,7 @@ if __name__ == "__main__":
     ''' % (__version__,__author__,__email__))
 
     print_index()
-    print(choosed_tool())
+    while True:
+        p = choosed_tool()
+        if p!=None:
+            print(p)
