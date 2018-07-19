@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+#WIP: install_tool(), run_tool()
+
 import pip._internal
 import json
 from collections import OrderedDict
@@ -66,7 +68,10 @@ def choosed_tool():
             ichrom.open_new_tab(link)
             return link
         else:
-            tool = subcat[0][t].split('/')[-1] # tool-name from gh.com/u/tool-name
+            url = subcat[0][t]
+            tool = subcat[0][t].split('/')[-1].lower() # tool-name from gh.com/u/tool-name
+            #install_tool(url,tool)
+            #run_tool(tool)
             return tool
     except ValueError:
         if o=='x':
@@ -76,6 +81,16 @@ def choosed_tool():
             print("invalid value")
     except IndexError:
         print("invalid value")
+
+def install_tool(url,tool):
+    subprocess.run(["git","clone",url+".git",tool]) #git clone "gh.com/the_tool.git" to the "tool" dir
+    #TODO: if requeriments.txt: pip install -r requirements.txt
+
+def run_tool(tool):
+    os.chdir(tool)
+    print("\033[1mlet's run <<%s>>! see you later!\n - tools.py\033[0m" %(tool))
+    subprocess.run(["python3",tool+".py"])
+    #TODO: read input and run python3 tool.py [input]
 
 if __name__ == "__main__":
 
