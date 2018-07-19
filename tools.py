@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-#FIXME: if first choosen_tool value is invalid, next time print(choosed_tool()) prints None 
-
 import pip._internal
 import json
 from collections import OrderedDict
