@@ -43,7 +43,7 @@
 	},
 	"domain-squatting":
 	{
-		"dns":
+		"domain names":
 		[[
 			"https://github.com/elceef/dnstwist",
 			"https://github.com/urbanadventurer/urlcrazy",
@@ -52,8 +52,11 @@
 			"https://github.com/UndeadSec/EvilURL",
 			"https://github.com/UndeadSec/checkURL"
 		],[
-			"https://mxtoolbox.com",
 			"http://cyber.squatting.es"
+		]],
+		"dns":
+		[[],[
+			"https://mxtoolbox.com"
 		]]
 	}
 }

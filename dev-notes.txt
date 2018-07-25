@@ -1,0 +1,36 @@
+email-osint-ripper: es 'eo-ripper.py'
+
+infoga: bien (faltaría un requeriments.txt)
+
+dmi-cat: está en php..
+
+tinfoleak: es python2
+
+tweets_analyzer: bash INSTALL.txt
+
+birdwatcher: es ruby
+
+tweet-stat: main.py
+
+cubiertos-para-twitter: no hay cubiertos-para-twitter.py
+  (quizás un menú)
+
+aquatone: ruby
+
+ctfr: bien (requeriments.txt)
+
+dirhunt: setup.py
+
+datasploit: python2
+
+dnstwist: bien
+
+urlcrazy: ruby
+
+catphish: catphish.rb
+
+idn_generator: main.py
+
+evilurl: perfect
+
+checkurl: checkURL.py (case sensitive)
