@@ -39,7 +39,8 @@ def print_index(): #TODO: columns?
                 print("     0%i%i%i: %s" % (i,j,k,link))
 
 def choosed_tool():
-    o = str(input("(type x to exit)\nchoose a tool by its number (start with 0 to choose a link): ")).lower()
+    msg = "(type: x to exit, ls to see which tools are installed)\nchoose a tool by its number (start with 0 to choose a link): "
+    o = str(input(msg)).lower()
     try:
         #list indexing start at 0:
         c = int(o[0])-1
@@ -70,24 +71,32 @@ def choosed_tool():
         else:
             url = subcat[0][t]
             tool = subcat[0][t].split('/')[-1].lower() # tool-name from gh.com/u/tool-name
-            #install_tool(url,tool)
-            #run_tool(tool)
+            install_tool(url,tool)
+            run_tool(tool)
             return tool
     except ValueError:
         if o=='x':
             print("bye!")
             sys.exit(0)
+        elif o=='ls':
+            print("installed tools:")
+            for f in os.listdir():
+                if os.path.isdir(f) and f[0]!='.':
+                    print(f)
         else:
             print("invalid value")
     except IndexError:
         print("invalid value")
 
 def install_tool(url,tool):
-    subprocess.run(["git","clone",url+".git",tool]) #git clone "gh.com/the_tool.git" to the "tool" dir
-    #TODO: if requeriments.txt: pip install -r requirements.txt
+    try:
+        os.chdir(tool)
+    except FileNotFoundError:
+        subprocess.run(["git","clone",url+".git",tool]) #git clone "gh.com/the_tool.git" to the "tool" dir
+        #TODO: if requeriments.txt: pip install -r requirements.txt
 
 def run_tool(tool):
-    os.chdir(tool)
+    #os.chdir(tool)
     print("\033[1mlet's run <<%s>>! see you later!\n - tools.py\033[0m" %(tool))
     subprocess.run(["python3",tool+".py"])
     #TODO: read input and run python3 tool.py [input]
