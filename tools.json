@@ -18,7 +18,8 @@
 			"https://github.com/x0rz/tweets_analyzer",
 			"https://github.com/michenriksen/birdwatcher",
 			"https://github.com/mgmacias95/Tweet-Stat",
-			"https://github.com/jartigag/cubiertos-para-twitter"
+			"https://github.com/jartigag/cubiertos-para-twitter",
+			"https://github.com/jartigag/trenca-trending-topic"
 		],[
 			"https://tweetbeaver.com",
 			"https://audiense.com",
@@ -44,7 +45,7 @@
 	},
 	"domain-squatting":
 	{
-		"domain names":
+		"domain name":
 		[[
 			"https://github.com/elceef/dnstwist",
 			"https://github.com/urbanadventurer/urlcrazy",
@@ -58,6 +59,22 @@
 		"dns":
 		[[],[
 			"https://mxtoolbox.com"
+		]]
+	},
+	"bitcoin":
+	{
+		"address":
+		[[
+			"https://github.com/samr7/vanitygen",
+			"https://github.com/walletgeneratornet/WalletGenerator.net",
+			"https://github.com/jartigag/genBTC"
+		],[
+		]],
+		"cracker":
+		[[
+			"https://github.com/ryancdotorg/brainflayer",
+			"https://github.com/ericdesa/sentinelle"
+		],[
 		]]
 	}
 }

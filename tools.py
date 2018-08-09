@@ -27,16 +27,18 @@ def print_index(): #TODO: columns?
             j+=1
             print(" \033[1m%i.%i-%s\033[0m" % (i,j,subcat))
             k=0
-            print("     [tools]:")
-            for tool in index[category][subcat][0]:
-                t = tool.rsplit('/',1)
-                k+=1
-                print("     %i%i%i: %s/\033[1m%s\033[0m" % (i,j,k,t[0],t[1]))
-            k=0
-            print("     [links]:")
-            for link in index[category][subcat][1]:
-                k+=1
-                print("     0%i%i%i: %s" % (i,j,k,link))
+            if index[category][subcat][0]:
+                print("     [tools]:")
+                for tool in index[category][subcat][0]:
+                    t = tool.rsplit('/',1)
+                    k+=1
+                    print("     %i%i%i: %s/\033[1m%s\033[0m" % (i,j,k,t[0],t[1]))
+                k=0
+            if index[category][subcat][1]:
+                print("     [links]:")
+                for link in index[category][subcat][1]:
+                    k+=1
+                    print("     0%i%i%i: %s" % (i,j,k,link))
 
 def choosed_tool():
     msg = "(type: \033[1mx\033[0m to exit, \
