@@ -32,10 +32,12 @@
 			"https://github.com/michenriksen/aquatone",
 			"https://github.com/UnaPibaGeek/ctfr",
 			"https://github.com/Nekmo/dirhunt",
-			"https://github.com/s0md3v/Photon"
+			"https://github.com/s0md3v/Photon",
+			"https://github.com/aboul3la/Sublist3r"
 		],[
 			"https://findsubdomains.com/",
-			"http://web.archive.org/"
+			"http://web.archive.org/",
+			"https://pentest-tools.com/information-gathering/find-subdomains-of-domain"
 		]],
 		"phone number":[[
 			"https://github.com/DataSploit/datasploit"
