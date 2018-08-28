@@ -17,7 +17,17 @@ __email__ = 'jartigag@pm.me'
 
 index = json.load(open("tools.json"),object_pairs_hook=OrderedDict)
 
-def print_index(): #TODO: columns?
+'''
+twolines = []
+def print_c(line):
+    global twolines
+    twolines.append(line)
+    if len(twolines)==2:
+        print("{:<80}{:<80}".format(twolines[0],twolines[1]))
+        twolines = []
+'''
+
+def print_index(): #TODO? columns: print_c(line)
     i=0
     for category in index:
         i+=1
@@ -76,7 +86,7 @@ choose a tool by its number (start with \033[1m0\033[0m to choose a link):\n>> "
             url = subcat[0][t]
             tool = subcat[0][t].split('/')[-1].lower() # tool-name from gh.com/u/tool-name
             install_tool(url,tool)
-            run_tool(tool)
+            #run_tool(tool)
             return tool
     except ValueError as e:
         if o=='x':
@@ -84,6 +94,8 @@ choose a tool by its number (start with \033[1m0\033[0m to choose a link):\n>> "
             sys.exit(0)
         elif o=='ls':
             print("installed tools:\033[1m")
+            if not any(os.path.isdir(f) and f[0]!='.' for f in os.listdir()):
+                print("no tools installed.")
             for f in os.listdir():
                 if os.path.isdir(f) and f[0]!='.':
                     print(f)
